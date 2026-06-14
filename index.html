@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- TITLE -->
+  <title>Majlis Walimatulurus | Hisyam &  Amanina</title>
+
+  <!-- WHATSAPP / FACEBOOK PREVIEW -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ms_MY">
+  <meta property="og:site_name" content="Majlis Walimatulurus">
+  <meta property="og:title" content="Majlis Walimatulurus ">
+  <meta property="og:description" content="Hisyam & Amanina">
+  <meta property="og:url" content="https://walimatulurusahisyamdanamanina/">
+
+  <!-- IMPORTANT: naikkan version kalau tukar gambar -->
+  <meta property="og:image" content="https://i.imgur.com/P6DmHEZ.jpeg">
+  <meta property="og:image:secure_url" content="https://i.imgur.com/P6DmHEZ.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Majlis Walimatulurus">
+  <meta name="twitter:description" content="Hisyam & Amanina">
+  <meta name="twitter:image" content="https://i.imgur.com/P6DmHEZ.jpeg">
+
+  <style>
+    @font-face{
+      font-family:"Peristiwa";
+      src:url("./Peristiwa.otf") format("opentype");
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
+    }
+
+    :root{
+      --text:#fff;
+      --shadow:0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+
+    body{
+  color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  background-image:url("./Cover.jpg");
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+    .wrap{
+      position:relative;
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px 16px;
+    }
+
+    .card{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      width:100%;
+      max-width:720px;
+      padding:20px;
+      position:relative;
+    }
+
+    .open-hole{
+      position:absolute;
+      top:38.5%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:150px;
+      height:60px;
+      cursor:pointer;
+      z-index:20;
+      background:transparent;
+      border:none;
+    }
+
+    .open-hole svg{
+      width:100%;
+      height:100%;
+      overflow:visible;
+    }
+
+    .open-hole text{
+      fill:#111;
+      font-size:15px;
+      font-weight:500;
+      letter-spacing:3px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:.78rem;
+      opacity:.8;
+    }
+
+    @media(max-width:480px){
+      .open-hole{
+        top:38.5%;
+        width:145px;
+        height:60px;
+      }
+
+      .open-hole text{
+        font-size:14px;
+        letter-spacing:3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="bgm" src="./Musik.m4a" preload="auto" loop playsinline webkit-playsinline></audio>
+
+  <div class="wrap">
+    <main class="card">
+
+      <button class="open-hole" id="openBtn" type="button" aria-label="Buka Undangan">
+        <svg viewBox="0 0 160 70">
+          <defs>
+            <path id="curveText" d="M 20 40 Q 80 90 140 40" />
+          </defs>
+          <text>
+            <textPath href="#curveText" startOffset="50%" text-anchor="middle">
+              BUKA DI SINI
+            </textPath>
+          </text>
+        </svg>
+      </button>
+
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const audio = document.getElementById("bgm");
+      const btn   = document.getElementById("openBtn");
+      const CANVA_URL = "https://amzacreates.my.canva.site/walimatulurushisyamnina/page-2";
+
+      btn.addEventListener("click", function(){
+        const w = window.open("about:blank", "_blank");
+
+        try{
+          audio.muted = false;
+          audio.volume = 1;
+          const p = audio.play();
+          if (p && typeof p.catch === "function") p.catch(function(){});
+          setTimeout(function(){ try{ audio.play(); }catch(e){} }, 250);
+        }catch(e){}
+
+        setTimeout(function(){
+          if (w) w.location.href = CANVA_URL;
+          else window.location.href = CANVA_URL;
+        }, 700);
+      });
+    })();
+  </script>
+
+</body>
+</html>
